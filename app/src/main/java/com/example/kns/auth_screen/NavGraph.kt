@@ -1,12 +1,14 @@
 package com.example.kns.auth_screen
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kns.csv_import.ImportScreen
 import com.example.kns.data.Record
@@ -50,10 +52,10 @@ fun NavGraph(context: Context) {
         composable("delete_record") {
             DeleteRecordScreen()
         }
-        composable("import_data") {
-            ImportScreen(navController = navController)   // ← NOW PASSES navController
+        composable("import_data") { 
+            ImportScreen(navController = navController)
         }
-        composable("view_all_records") {
+        composable("view_all_records") { 
             ViewAllRecordsScreen()
         }
     }
