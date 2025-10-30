@@ -1,4 +1,4 @@
-package com.example.kns.records
+package com.attri.kns.records
 
 import android.content.Context
 import android.net.Uri
@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.kns.data.Record
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.Record
+import com.attri.kns.data.RecordDatabase
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream

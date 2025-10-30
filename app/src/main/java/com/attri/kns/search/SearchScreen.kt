@@ -1,4 +1,4 @@
-package com.example.kns.search
+package com.attri.kns.search
 
 import android.net.Uri
 import androidx.compose.foundation.Image
@@ -20,8 +20,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.kns.data.Record
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.Record
+import com.attri.kns.data.RecordDatabase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 

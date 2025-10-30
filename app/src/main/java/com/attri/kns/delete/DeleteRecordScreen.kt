@@ -1,4 +1,4 @@
-package com.example.kns.delete
+package com.attri.kns.delete
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,8 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.kns.data.Record
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.Record
+import com.attri.kns.data.RecordDatabase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 

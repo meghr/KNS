@@ -1,4 +1,4 @@
-package com.example.kns.data
+package com.attri.kns.data
 
 import androidx.room.Dao
 import androidx.room.Delete

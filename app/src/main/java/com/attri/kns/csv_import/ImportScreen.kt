@@ -1,4 +1,4 @@
-package com.example.kns.csv_import
+package com.attri.kns.csv_import
 
 import android.content.Context
 import android.net.Uri
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.kns.data.Record
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.Record
+import com.attri.kns.data.RecordDatabase
 import kotlinx.coroutines.launch
 import java.io.InputStreamReader
 

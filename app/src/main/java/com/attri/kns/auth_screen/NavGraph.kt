@@ -1,14 +1,14 @@
-package com.example.kns.auth_screen
+package com.attri.kns.auth_screen
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.kns.csv_import.ImportScreen
-import com.example.kns.delete.DeleteRecordScreen
-import com.example.kns.records.AddRecordScreen
-import com.example.kns.search.SearchScreen
-import com.example.kns.view.ViewAllRecordsScreen
+import com.attri.kns.csv_import.ImportScreen
+import com.attri.kns.delete.DeleteRecordScreen
+import com.attri.kns.records.AddRecordScreen
+import com.attri.kns.search.SearchScreen
+import com.attri.kns.view.ViewAllRecordsScreen
 
 @Composable
 fun NavGraph() {

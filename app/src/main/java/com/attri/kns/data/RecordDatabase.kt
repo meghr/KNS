@@ -1,4 +1,4 @@
-package com.example.kns.data
+package com.attri.kns.data
 
 import android.content.Context
 import androidx.room.Database

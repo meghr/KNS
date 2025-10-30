@@ -1,4 +1,4 @@
-package com.example.kns.view
+package com.attri.kns.view
 
 import android.content.Intent
 import android.net.Uri
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.RecordDatabase
 
 @Composable
 fun ViewAllRecordsScreen() {

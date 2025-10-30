@@ -1,4 +1,4 @@
-package com.example.kns.auth_screen
+package com.attri.kns.auth_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,7 +17,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.kns.R
+import com.attri.kns.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

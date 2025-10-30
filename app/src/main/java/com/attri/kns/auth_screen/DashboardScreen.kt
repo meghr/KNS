@@ -1,4 +1,4 @@
-package com.example.kns.auth_screen
+package com.attri.kns.auth_screen
 
 import android.Manifest
 import android.content.ContentValues
@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.kns.data.RecordDatabase
+import com.attri.kns.data.RecordDatabase
 import kotlinx.coroutines.launch
 import java.io.IOException
 import java.text.SimpleDateFormat

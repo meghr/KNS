@@ -1,4 +1,4 @@
-package com.example.kns.ui.theme
+package com.attri.kns.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.kns"
+    namespace = "com.attri.kns"
     compileSdk = 34
 
     defaultConfig {
