@@ -3,6 +3,7 @@ package com.attri.kns.search
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.attri.kns.data.Record
 import com.attri.kns.data.RecordDatabase
@@ -27,7 +29,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
-fun SearchScreen() {
+fun SearchScreen(navController: NavController) {
     val context = LocalContext.current
     val db = remember { RecordDatabase.getDatabase(context) }
     val scope = rememberCoroutineScope()
@@ -138,16 +140,16 @@ fun SearchScreen() {
         } else {
             LazyColumn {
                 items(searchResults) { record ->
-                    RecordCard(record = record)
+                    RecordCard(record = record, navController = navController)
                 }
             }
         }
     }
 }
 
-@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun RecordCard(record: Record) {
+fun RecordCard(record: Record, navController: NavController) {
     val pagerState = rememberPagerState(pageCount = { 2 })
 
     Column(
@@ -166,7 +168,9 @@ fun RecordCard(record: Record) {
                         .padding(8.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
+                    Column(
+                        modifier = Modifier.padding(16.dp).clickable { navController.navigate("edit_record/${record.id}") },
+                    ) {
                         Text(
                             text = record.name,
                             style = MaterialTheme.typography.titleLarge
