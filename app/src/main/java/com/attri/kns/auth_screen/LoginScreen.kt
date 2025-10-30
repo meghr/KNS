@@ -14,9 +14,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.attri.kns.AuthStore
 import com.attri.kns.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,6 +27,8 @@ fun LoginScreen(navController: NavController) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var showError by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val authStore = AuthStore(context)
 
     // ✅ Use scrollable column to automatically adjust when keyboard opens
     Column(
@@ -102,10 +106,21 @@ fun LoginScreen(navController: NavController) {
         // 🔹 Login button
         Button(
             onClick = {
-                if (username == "123" && password == "123") {
-                    navController.navigate("dashboard")
+                val storedUsername = authStore.getUsername()
+                val storedPassword = authStore.getPassword()
+
+                if (storedUsername != null && storedPassword != null) {
+                    if (username == storedUsername && password == storedPassword) {
+                        navController.navigate("dashboard")
+                    } else {
+                        showError = true
+                    }
                 } else {
-                    showError = true
+                    if (username == "123" && password == "123") {
+                        navController.navigate("dashboard")
+                    } else {
+                        showError = true
+                    }
                 }
             },
             modifier = Modifier

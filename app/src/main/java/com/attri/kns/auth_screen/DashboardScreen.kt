@@ -58,6 +58,7 @@ fun DashboardScreen(navController: NavController) {
         DashboardItem(Icons.Default.Download, "Export Data", "export_data"),
         DashboardItem(Icons.Default.Delete, "Delete Record", "delete_record"),
         DashboardItem(Icons.Default.List, "View All Records", "view_all_records"),
+        DashboardItem(Icons.Default.Lock, "Change Credentials", "change_credentials"),
         DashboardItem(Icons.Default.ExitToApp, "Exit / Logout", "login")
     )
 

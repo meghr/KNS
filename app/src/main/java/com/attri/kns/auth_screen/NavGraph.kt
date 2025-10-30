@@ -58,5 +58,8 @@ fun NavGraph(context: Context) {
         composable("view_all_records") { 
             ViewAllRecordsScreen()
         }
+        composable("change_credentials") {
+            ChangeCredentialsScreen(navController = navController)
+        }
     }
 }
