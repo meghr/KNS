@@ -5,12 +5,16 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RecordDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(record: Record)
+
+    @Update
+    suspend fun update(record: Record)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(records: List<Record>)
@@ -38,4 +42,7 @@ interface RecordDao {
 
     @Query("SELECT * FROM records WHERE cif LIKE :query")
     fun findByCif(query: String): Flow<List<Record>>
+
+    @Query("SELECT * FROM records WHERE id = :id")
+    suspend fun getRecordById(id: Int): Record
 }

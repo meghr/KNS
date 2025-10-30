@@ -21,13 +21,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.kns.data.Record
+import androidx.navigation.NavController
 import com.example.kns.data.RecordDatabase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
-fun SearchScreen() {
+fun SearchScreen(navController: NavController) {
     val context = LocalContext.current
     val db = remember { RecordDatabase.getDatabase(context) }
     val scope = rememberCoroutineScope()
@@ -138,7 +139,7 @@ fun SearchScreen() {
         } else {
             LazyColumn {
                 items(searchResults) { record ->
-                    RecordCard(record = record)
+                    RecordCard(record = record, navController = navController)
                 }
             }
         }
@@ -147,7 +148,7 @@ fun SearchScreen() {
 
 @OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
-fun RecordCard(record: Record) {
+fun RecordCard(record: Record, navController: NavController) {
     val pagerState = rememberPagerState(pageCount = { 2 })
 
     Column(
@@ -243,6 +244,9 @@ fun RecordCard(record: Record) {
                         .size(10.dp)
                 )
             }
+        }
+        Button(onClick = { navController.navigate("edit_record/${record.id}") }) {
+            Text("Edit")
         }
     }
 }

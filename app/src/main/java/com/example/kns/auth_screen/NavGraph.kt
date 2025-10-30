@@ -3,16 +3,25 @@ package com.example.kns.auth_screen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kns.csv_import.ImportScreen
+import com.example.kns.data.Record
+import com.example.kns.data.RecordDatabase
 import com.example.kns.delete.DeleteRecordScreen
 import com.example.kns.records.AddRecordScreen
+import com.example.kns.records.EditRecordScreen
 import com.example.kns.search.SearchScreen
 import com.example.kns.view.ViewAllRecordsScreen
 
 @Composable
-fun NavGraph() {
+fun NavGraph(context: Context) {
     val navController = rememberNavController()
+    val db = RecordDatabase.getDatabase(context)
+
     NavHost(navController = navController, startDestination = "login") {
         composable("login") {
             LoginScreen(navController = navController)
@@ -24,7 +33,19 @@ fun NavGraph() {
             AddRecordScreen(navController = navController)
         }
         composable("search") {
-            SearchScreen()
+            SearchScreen(navController = navController)
+        }
+        composable("edit_record/{recordId}") { backStackEntry ->
+            val recordId = backStackEntry.arguments?.getString("recordId")?.toIntOrNull()
+            if (recordId != null) {
+                var record by remember { mutableStateOf<Record?>(null) }
+                LaunchedEffect(recordId) {
+                    record = db.recordDao().getRecordById(recordId)
+                }
+                record?.let {
+                    EditRecordScreen(navController = navController, record = it)
+                }
+            }
         }
         composable("delete_record") {
             DeleteRecordScreen()
